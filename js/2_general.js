@@ -50,20 +50,53 @@ GNRL.LaunchServicesManager = function($type, $dataToSend, $serviceName, $callbac
     });
 };
 //Ligthbox
-function callLigthbox(){}
+GNRL.callLigthbox = function($html, $btnClose, $callbackClose){
+    var modal = '<div class="modal">';
+        if( $btnClose ){
+            modal += '<div class="close_modal">X</div>';
+        }
+            modal += '<div class="lb_cont">';
+                modal += $html;
+            modal += '</div>';
+        modal += '</div>';
+
+
+    $('.modal, .close_modal').bind('click', function($evt){
+        $evt.preventDefault();
+        if ($callbackClose) {
+            if ($callbackClose.url) {
+                window.location = $callbackClose.url;
+            }else if ($callbackClose.evt){
+                $callbackClose.evt();
+            }
+        }else{
+            $('.modal').fadeOut(500);
+            $('.modal').delay(500).remove();
+        }
+    });
+
+}
 //Carousel
-function callCarousel(){}
+GNRL.callCarousel = function(){
+}
 //Opacity Carousel
-function callOpacityCarousel(){}
+GNRL.callOpacityCarousel = function(){
+}
 //Accordion
-function callAccordion(){}
+GNRL.callAccordion = function(){
+}
 //Parallax
-function callParallax(){}
+GNRL.callParallax = function(){
+}
 //Loader
-function callLoader(){}
+GNRL.callLoader = function(){
+}
 //Counter
-function callCounter(){}
+GNRL.callCounter = function(){
+}
 //Hover Tooltip
-function callTooltip(){}
+GNRL.callTooltip = function(){
+}
 //Hover Zoom
-function callImgZoom(){}
+GNRL.callImgZoom = function(){
+}
