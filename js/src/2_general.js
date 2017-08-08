@@ -59,22 +59,15 @@ GNRL.callLigthbox = function($html, $btnClose, $callbackClose){
                 modal += $html;
             modal += '</div>';
         modal += '</div>';
-
-
     $('.modal, .close_modal').bind('click', function($evt){
         $evt.preventDefault();
-        if ($callbackClose) {
-            if ($callbackClose.url) {
-                window.location = $callbackClose.url;
-            }else if ($callbackClose.evt){
-                $callbackClose.evt();
-            }
+        if ( typeof $callbackClose === 'function' ) {
+            $callbackClose();
         }else{
             $('.modal').fadeOut(500);
             $('.modal').delay(500).remove();
         }
     });
-
 }
 //Carousel
 GNRL.callCarousel = function(){
